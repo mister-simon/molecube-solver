@@ -1,5 +1,6 @@
 <script setup>
 import shuffle from '../lib/shuffle';
+import permute from '../lib/permute';
 import { computed, onMounted, reactive, ref } from 'vue';
 import Face from './Face.vue';
 
@@ -8,6 +9,8 @@ const emit = defineEmits(['invalid']);
 let loaded = ref(false);
 let count = ref(0);
 let validFaces = ref(0);
+
+const stickerPermuter = permuteStickers();
 
 // Centers
 const centers = {
@@ -121,33 +124,47 @@ const validateCube = () => {
   return isValid;
 }
 
+function* permuteStickers() {
+  for (const corners of permute([
+    'white',
+    'orange',
+    'black',
+    'yellow',
+    'lblue',
+    'dblue',
+    'green',
+    'green',
+  ])) {
+    for (const edges of permute([
+      'white',
+      'orange',
+      'black',
+      'yellow',
+      'lblue',
+      'dblue',
+      'purple',
+      'purple',
+      'purple',
+      'red',
+      'red',
+      'red',
+    ])) {
+      yield [
+        ...corners,
+        ...edges
+      ];
+    }
+  }
+}
+
 function reroll() {
-  const shuffledStickers = [
-    ...shuffle([
-      'white',
-      'orange',
-      'black',
-      'yellow',
-      'lblue',
-      'dblue',
-      'green',
-      'green',
-    ]),
-    ...shuffle([
-      'white',
-      'orange',
-      'black',
-      'yellow',
-      'lblue',
-      'dblue',
-      'purple',
-      'purple',
-      'purple',
-      'red',
-      'red',
-      'red',
-    ])
-  ];
+  const nextPermutation = stickerPermuter.next();
+
+  if (nextPermutation.done) {
+    return;
+  }
+
+  const shuffledStickers = nextPermutation.value;
 
   let i = 1;
   for (const color of shuffledStickers) {
@@ -157,8 +174,14 @@ function reroll() {
   loaded.value = true;
   count.value++;
 
-  if (validateCube() === false) {
-    setTimeout(() => requestAnimationFrame(reroll), 0);
+  const isValid = validateCube();
+
+  if (isValid === false) {
+    if (count.value % 1000 === 0) {
+      setTimeout(() => requestAnimationFrame(reroll), 0);
+    } else {
+      reroll()
+    }
   }
 }
 
@@ -166,6 +189,7 @@ function reroll() {
 
 <template>
   <p class="text-center mt-4">Rerolled: {{ count }}</p>
+  <p class="text-center ">Best match: {{ validFaces }} / 6</p>
   <div class="wrap" v-if="loaded">
     <div class="grid grid-cols-3 gap-[1px] p-4 max-w-[calc(100vh*0.7)] mx-auto">
       <div></div>
