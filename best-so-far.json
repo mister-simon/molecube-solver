@@ -1,0 +1,320 @@
+{
+  "back": [
+    {
+      "index": 1,
+      "sticker": {
+        "color": "black"
+      }
+    },
+    {
+      "index": 9,
+      "sticker": {
+        "color": "dblue"
+      }
+    },
+    {
+      "index": 2,
+      "sticker": {
+        "color": "yellow"
+      }
+    },
+    {
+      "index": 10,
+      "sticker": {
+        "color": "purple"
+      }
+    },
+    {
+      "index": null
+    },
+    {
+      "index": 11,
+      "sticker": {
+        "color": "orange"
+      }
+    },
+    {
+      "index": 3,
+      "sticker": {
+        "color": "lblue"
+      }
+    },
+    {
+      "index": 12,
+      "sticker": {
+        "color": "red"
+      }
+    },
+    {
+      "index": 4,
+      "sticker": {
+        "color": "green"
+      }
+    }
+  ],
+  "up": [
+    {
+      "index": 3,
+      "sticker": {
+        "color": "lblue"
+      }
+    },
+    {
+      "index": 12,
+      "sticker": {
+        "color": "red"
+      }
+    },
+    {
+      "index": 4,
+      "sticker": {
+        "color": "green"
+      }
+    },
+    {
+      "index": 13,
+      "sticker": {
+        "color": "purple"
+      }
+    },
+    {
+      "index": null
+    },
+    {
+      "index": 14,
+      "sticker": {
+        "color": "black"
+      }
+    },
+    {
+      "index": 5,
+      "sticker": {
+        "color": "white"
+      }
+    },
+    {
+      "index": 15,
+      "sticker": {
+        "color": "yellow"
+      }
+    },
+    {
+      "index": 6,
+      "sticker": {
+        "color": "dblue"
+      }
+    }
+  ],
+  "left": [
+    {
+      "index": 3,
+      "sticker": {
+        "color": "lblue"
+      }
+    },
+    {
+      "index": 13,
+      "sticker": {
+        "color": "purple"
+      }
+    },
+    {
+      "index": 5,
+      "sticker": {
+        "color": "white"
+      }
+    },
+    {
+      "index": 10,
+      "sticker": {
+        "color": "purple"
+      }
+    },
+    {
+      "index": null
+    },
+    {
+      "index": 16,
+      "sticker": {
+        "color": "red"
+      }
+    },
+    {
+      "index": 1,
+      "sticker": {
+        "color": "black"
+      }
+    },
+    {
+      "index": 18,
+      "sticker": {
+        "color": "white"
+      }
+    },
+    {
+      "index": 7,
+      "sticker": {
+        "color": "orange"
+      }
+    }
+  ],
+  "front": [
+    {
+      "index": 5,
+      "sticker": {
+        "color": "white"
+      }
+    },
+    {
+      "index": 15,
+      "sticker": {
+        "color": "yellow"
+      }
+    },
+    {
+      "index": 6,
+      "sticker": {
+        "color": "dblue"
+      }
+    },
+    {
+      "index": 16,
+      "sticker": {
+        "color": "red"
+      }
+    },
+    {
+      "index": null
+    },
+    {
+      "index": 17,
+      "sticker": {
+        "color": "purple"
+      }
+    },
+    {
+      "index": 7,
+      "sticker": {
+        "color": "orange"
+      }
+    },
+    {
+      "index": 19,
+      "sticker": {
+        "color": "lblue"
+      }
+    },
+    {
+      "index": 8,
+      "sticker": {
+        "color": "green"
+      }
+    }
+  ],
+  "right": [
+    {
+      "index": 6,
+      "sticker": {
+        "color": "dblue"
+      }
+    },
+    {
+      "index": 14,
+      "sticker": {
+        "color": "black"
+      }
+    },
+    {
+      "index": 4,
+      "sticker": {
+        "color": "green"
+      }
+    },
+    {
+      "index": 17,
+      "sticker": {
+        "color": "purple"
+      }
+    },
+    {
+      "index": null
+    },
+    {
+      "index": 11,
+      "sticker": {
+        "color": "orange"
+      }
+    },
+    {
+      "index": 8,
+      "sticker": {
+        "color": "green"
+      }
+    },
+    {
+      "index": 20,
+      "sticker": {
+        "color": "red"
+      }
+    },
+    {
+      "index": 2,
+      "sticker": {
+        "color": "yellow"
+      }
+    }
+  ],
+  "down": [
+    {
+      "index": 7,
+      "sticker": {
+        "color": "orange"
+      }
+    },
+    {
+      "index": 19,
+      "sticker": {
+        "color": "lblue"
+      }
+    },
+    {
+      "index": 8,
+      "sticker": {
+        "color": "green"
+      }
+    },
+    {
+      "index": 18,
+      "sticker": {
+        "color": "white"
+      }
+    },
+    {
+      "index": null
+    },
+    {
+      "index": 20,
+      "sticker": {
+        "color": "red"
+      }
+    },
+    {
+      "index": 1,
+      "sticker": {
+        "color": "black"
+      }
+    },
+    {
+      "index": 9,
+      "sticker": {
+        "color": "dblue"
+      }
+    },
+    {
+      "index": 2,
+      "sticker": {
+        "color": "yellow"
+      }
+    }
+  ]
+}
