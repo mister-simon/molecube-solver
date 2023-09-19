@@ -1,5 +1,3 @@
-Solutions:
-
 dblue,black,green,lblue,white,yellow,orange,green,red,yellow,orange,purple,black,red,dblue,red,purple,purple,lblue,white
 dblue,black,green,lblue,white,yellow,orange,green,purple,yellow,orange,red,black,purple,dblue,purple,red,red,lblue,white
 dblue,black,green,yellow,white,lblue,orange,green,lblue,red,orange,purple,black,red,dblue,yellow,purple,purple,red,white
@@ -74,3 +72,9 @@ green,lblue,yellow,black,dblue,green,orange,white,dblue,red,orange,purple,white,
 green,lblue,yellow,black,dblue,green,orange,white,dblue,purple,orange,red,white,purple,lblue,red,yellow,black,purple,red
 dblue,green,black,lblue,green,yellow,orange,white,red,yellow,orange,purple,white,red,dblue,red,purple,purple,lblue,black
 dblue,green,black,lblue,green,yellow,orange,white,purple,yellow,orange,red,white,purple,dblue,purple,red,red,lblue,black
+black,green,dblue,yellow,green,lblue,orange,white,lblue,purple,orange,red,white,black,purple,yellow,red,red,dblue,purple
+black,green,dblue,yellow,green,lblue,orange,white,lblue,red,orange,purple,white,black,red,yellow,purple,purple,dblue,red
+dblue,green,black,yellow,green,lblue,orange,white,lblue,red,orange,purple,white,red,dblue,yellow,purple,purple,red,black
+dblue,green,black,yellow,green,lblue,orange,white,lblue,purple,orange,red,white,purple,dblue,yellow,red,red,purple,black
+dblue,green,yellow,black,green,lblue,orange,white,lblue,red,orange,purple,white,red,dblue,purple,yellow,black,red,purple
+dblue,green,yellow,black,green,lblue,orange,white,lblue,purple,orange,red,white,purple,dblue,red,yellow,black,purple,red
