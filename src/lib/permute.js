@@ -221,6 +221,74 @@ export function* permuteStickers() {
                 continue;
             }
 
+
+            const hasFullSetDuplicates = checkSetDuplicates([
+                [
+                    corners[1 - 1],
+                    corners[2 - 1],
+                    corners[3 - 1],
+                    corners[4 - 1],
+                    edges[9 - 9],
+                    edges[10 - 9],
+                    edges[11 - 9],
+                    edges[12 - 9],
+                ],
+                [
+                    corners[3 - 1],
+                    corners[4 - 1],
+                    corners[5 - 1],
+                    corners[6 - 1],
+                    edges[12 - 9],
+                    edges[13 - 9],
+                    edges[14 - 9],
+                    edges[15 - 9],
+                ],
+                [
+                    corners[3 - 1],
+                    corners[5 - 1],
+                    corners[1 - 1],
+                    corners[7 - 1],
+                    edges[13 - 9],
+                    edges[10 - 9],
+                    edges[16 - 9],
+                    edges[18 - 9],
+                ],
+                [
+                    corners[5 - 1],
+                    corners[6 - 1],
+                    corners[7 - 1],
+                    corners[8 - 1],
+                    edges[15 - 9],
+                    edges[16 - 9],
+                    edges[17 - 9],
+                    edges[19 - 9],
+                ],
+                [
+                    corners[6 - 1],
+                    corners[4 - 1],
+                    corners[8 - 1],
+                    corners[2 - 1],
+                    edges[14 - 9],
+                    edges[17 - 9],
+                    edges[11 - 9],
+                    edges[20 - 9],
+                ],
+                [
+                    corners[7 - 1],
+                    corners[8 - 1],
+                    corners[1 - 1],
+                    corners[2 - 1],
+                    edges[19 - 9],
+                    edges[18 - 9],
+                    edges[20 - 9],
+                    edges[9 - 9],
+                ],
+            ]);
+
+            if (hasFullSetDuplicates) {
+                continue;
+            }
+
             yield [
                 ...corners,
                 ...edges
