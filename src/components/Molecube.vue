@@ -1,7 +1,7 @@
 <script setup>
 import shuffle from '../lib/shuffle';
 import { permuteStickers } from '../lib/permute';
-import { computed, onMounted, reactive, ref } from 'vue';
+import { computed, nextTick, onMounted, reactive, ref } from 'vue';
 import Face from './Face.vue';
 
 const emit = defineEmits(['invalid']);
@@ -10,6 +10,7 @@ let running = ref(false);
 let loaded = ref(false);
 let count = ref(0);
 let validFaces = ref(0);
+let validStates = reactive({});
 
 const stickerPermuter = permuteStickers();
 
@@ -64,7 +65,7 @@ const faces = computed(
       1, 9, 2
     ),
   })
-)
+);
 
 function getColorCounts(face) {
   return face
@@ -111,19 +112,11 @@ const validateCube = () => {
 
   const isValid = failed === 0;
 
-  if (isValid) {
-    console.log(faces.value);
-
-    alert('VALID SOLUTION!!!');
-  }
-
   const valid = 6 - failed;
 
   if (valid > validFaces.value) {
     validFaces.value = valid;
-    console.log(valid, faces.value);
   }
-
 
   return isValid;
 }
@@ -159,52 +152,69 @@ function reroll() {
 
   const isValid = validateCube();
 
-  if (isValid === false) {
-    if (count.value % 999 === 0) {
-      setTimeout(() => requestAnimationFrame(reroll), 0);
+  if (isValid) {
+    validStates[nextPermutation.value.join(',')] = true;
+
+    requestAnimationFrame(reroll);
+  } else {
+    if (count.value % 1000 === 0) {
+      requestAnimationFrame(reroll);
     } else {
       reroll()
     }
   }
+
+
 }
 
 </script>
 
 <template>
-  <div class="text-center space-y-2 mt-2">
-    <p>Rerolled: {{ count }}</p>
-    <p>Best match: {{ validFaces }} / 6</p>
-    <button class="btn btn-primary" @click="toggleRunning">{{ running ? 'Stop' : 'Run' }}</button>
-  </div>
-  <div class="wrap" v-if="loaded">
-    <div class="grid grid-cols-3 gap-[1px] p-4 max-w-[calc(100vh*0.63)] mx-auto">
-      <div></div>
-      <!-- Back -->
-      <Face :center="{ sticker: centers.back }" :stickers="faces.back" :is-valid="validateFace(faces.back, centers.back)"
-        class="back" />
-      <div></div>
+  <div class="flex flex-row">
+    <div class="flex-grow">
+      <div class="wrap" v-if="loaded">
+        <div class="grid grid-cols-3 gap-[1px] p-4 max-w-[calc(100vh*0.63)] mx-auto">
+          <div></div>
+          <!-- Back -->
+          <Face :center="{ sticker: centers.back }" :stickers="faces.back"
+            :is-valid="validateFace(faces.back, centers.back)" class="back" />
+          <div></div>
 
-      <div></div>
-      <!-- Up -->
-      <Face :center="{ sticker: centers.up }" :stickers="faces.up" :is-valid="validateFace(faces.up, centers.up)"
-        class="up" />
-      <div></div>
+          <div></div>
+          <!-- Up -->
+          <Face :center="{ sticker: centers.up }" :stickers="faces.up" :is-valid="validateFace(faces.up, centers.up)"
+            class="up" />
+          <div></div>
 
-      <!-- Left -->
-      <Face :center="{ sticker: centers.left }" :stickers="faces.left" :is-valid="validateFace(faces.left, centers.left)"
-        class="left" />
-      <!-- Front -->
-      <Face :center="{ sticker: centers.front }" :stickers="faces.front"
-        :is-valid="validateFace(faces.front, centers.front)" class="front" />
-      <!-- Right -->
-      <Face :center="{ sticker: centers.right }" :stickers="faces.right"
-        :is-valid="validateFace(faces.right, centers.right)" class="right" />
+          <!-- Left -->
+          <Face :center="{ sticker: centers.left }" :stickers="faces.left"
+            :is-valid="validateFace(faces.left, centers.left)" class="left" />
+          <!-- Front -->
+          <Face :center="{ sticker: centers.front }" :stickers="faces.front"
+            :is-valid="validateFace(faces.front, centers.front)" class="front" />
+          <!-- Right -->
+          <Face :center="{ sticker: centers.right }" :stickers="faces.right"
+            :is-valid="validateFace(faces.right, centers.right)" class="right" />
 
-      <div></div>
-      <!-- Down -->
-      <Face :center="{ sticker: centers.down }" :stickers="faces.down" :is-valid="validateFace(faces.down, centers.down)"
-        class="down" />
-      <div></div>
+          <div></div>
+          <!-- Down -->
+          <Face :center="{ sticker: centers.down }" :stickers="faces.down"
+            :is-valid="validateFace(faces.down, centers.down)" class="down" />
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-grow-0 max-w-[50%]">
+      <div class="text-center space-y-2 mt-2">
+        <p>Rerolled: {{ count }}</p>
+        <p>Best match: {{ validFaces }} / 6</p>
+        <button class="btn btn-primary" @click="toggleRunning">{{ running ? 'Stop' : 'Run' }}</button>
+      </div>
+      <p>Solutions:</p>
+      <ol class="list-decimal">
+        <li v-for="(value, solution) in validStates">{{ solution }}</li>
+      </ol>
     </div>
   </div>
 </template>

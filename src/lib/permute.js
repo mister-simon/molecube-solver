@@ -40,13 +40,13 @@ function checkSetDuplicates(sets) {
 
 export function* permuteStickers() {
     for (const corners of permute([
-        'white',
-        'orange',
-        'black',
-        'yellow',
-        'lblue',
         'dblue',
+        'black',
         'green',
+        'lblue',
+        'white',
+        'yellow',
+        'orange',
         'green',
     ])) {
         // Dumb centre check
@@ -131,18 +131,18 @@ export function* permuteStickers() {
 
         // Permute the edges with the current corner permutation
         for (const edges of permute([
-            'white',
-            'orange',
-            'black',
+            'red',
             'yellow',
-            'lblue',
+            'orange',
+            'purple',
+            'black',
+            'red',
             'dblue',
+            'red',
             'purple',
             'purple',
-            'purple',
-            'red',
-            'red',
-            'red',
+            'lblue',
+            'white',
         ])) {
             if (
                 edges[9 - 9] === 'white'
