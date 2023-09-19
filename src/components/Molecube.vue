@@ -1,11 +1,12 @@
 <script setup>
 import shuffle from '../lib/shuffle';
-import permute from '../lib/permute';
+import { permuteStickers } from '../lib/permute';
 import { computed, onMounted, reactive, ref } from 'vue';
 import Face from './Face.vue';
 
 const emit = defineEmits(['invalid']);
 
+let running = ref(false);
 let loaded = ref(false);
 let count = ref(0);
 let validFaces = ref(0);
@@ -65,9 +66,8 @@ const faces = computed(
   })
 )
 
-function getColorCounts(face, center) {
+function getColorCounts(face) {
   return face
-    .map((sticker) => sticker.sticker?.color ?? center.color)
     .reduce(
       (colors, color) => {
         if (colors[color] === undefined) {
@@ -83,7 +83,11 @@ function getColorCounts(face, center) {
 }
 
 function validateFace(face, center) {
-  const colorCounts = getColorCounts(face, center);
+  const colorCounts = getColorCounts(
+    face.map(
+      (sticker) => sticker.sticker?.color ?? center.color
+    )
+  );
 
   const notValid = Object.values(colorCounts)
     .some((count) => count > 1);
@@ -124,40 +128,19 @@ const validateCube = () => {
   return isValid;
 }
 
-function* permuteStickers() {
-  for (const corners of permute([
-    'white',
-    'orange',
-    'black',
-    'yellow',
-    'lblue',
-    'dblue',
-    'green',
-    'green',
-  ])) {
-    for (const edges of permute([
-      'white',
-      'orange',
-      'black',
-      'yellow',
-      'lblue',
-      'dblue',
-      'purple',
-      'purple',
-      'purple',
-      'red',
-      'red',
-      'red',
-    ])) {
-      yield [
-        ...corners,
-        ...edges
-      ];
-    }
+function toggleRunning() {
+  running.value = !running.value;
+
+  if (running) {
+    reroll();
   }
 }
 
 function reroll() {
+  if (running.value === false) {
+    return;
+  }
+
   const nextPermutation = stickerPermuter.next();
 
   if (nextPermutation.done) {
@@ -177,7 +160,7 @@ function reroll() {
   const isValid = validateCube();
 
   if (isValid === false) {
-    if (count.value % 1000 === 0) {
+    if (count.value % 999 === 0) {
       setTimeout(() => requestAnimationFrame(reroll), 0);
     } else {
       reroll()
@@ -188,10 +171,13 @@ function reroll() {
 </script>
 
 <template>
-  <p class="text-center mt-4">Rerolled: {{ count }}</p>
-  <p class="text-center ">Best match: {{ validFaces }} / 6</p>
+  <div class="text-center space-y-2 mt-2">
+    <p>Rerolled: {{ count }}</p>
+    <p>Best match: {{ validFaces }} / 6</p>
+    <button class="btn btn-primary" @click="toggleRunning">{{ running ? 'Stop' : 'Run' }}</button>
+  </div>
   <div class="wrap" v-if="loaded">
-    <div class="grid grid-cols-3 gap-[1px] p-4 max-w-[calc(100vh*0.7)] mx-auto">
+    <div class="grid grid-cols-3 gap-[1px] p-4 max-w-[calc(100vh*0.63)] mx-auto">
       <div></div>
       <!-- Back -->
       <Face :center="{ sticker: centers.back }" :stickers="faces.back" :is-valid="validateFace(faces.back, centers.back)"
@@ -222,40 +208,3 @@ function reroll() {
     </div>
   </div>
 </template>
-
-
-<style scoped>
-/* .wrap {
-  perspective: 1000px;
-  --offset: 0;
-}
-
-.grid {
-  transform: rotate3d(-1, 1, 1, 45deg);
-  transform-style: preserve-3d;
-}
-
-.back {
-  transform: rotateY(180deg) translateZ(var(--offset));
-}
-
-.up {
-  transform: rotateX(90deg) translateZ(var(--offset));
-}
-
-.left {
-  transform: rotateY(-90deg) translateZ(var(--offset));
-}
-
-.front {
-  transform: translateZ(var(--offset));
-}
-
-.right {
-  transform: rotateY(90deg) translateZ(var(--offset));
-}
-
-.down {
-  transform: rotateX(-90deg) translateZ(var(--offset));
-} */
-</style>

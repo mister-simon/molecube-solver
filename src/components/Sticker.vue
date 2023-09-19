@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <div :class="sticker.color" class="transition-colors duration-75">
+    <div :class="sticker.color" class="transition-colors duration-200">
         <slot></slot>
     </div>
 </template>

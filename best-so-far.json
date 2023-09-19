@@ -3,25 +3,25 @@
     {
       "index": 1,
       "sticker": {
-        "color": "black"
+        "color": "dblue"
       }
     },
     {
       "index": 9,
       "sticker": {
-        "color": "dblue"
+        "color": "red"
       }
     },
     {
       "index": 2,
       "sticker": {
-        "color": "yellow"
+        "color": "black"
       }
     },
     {
       "index": 10,
       "sticker": {
-        "color": "purple"
+        "color": "yellow"
       }
     },
     {
@@ -36,19 +36,19 @@
     {
       "index": 3,
       "sticker": {
-        "color": "lblue"
+        "color": "green"
       }
     },
     {
       "index": 12,
       "sticker": {
-        "color": "red"
+        "color": "purple"
       }
     },
     {
       "index": 4,
       "sticker": {
-        "color": "green"
+        "color": "lblue"
       }
     }
   ],
@@ -56,25 +56,25 @@
     {
       "index": 3,
       "sticker": {
-        "color": "lblue"
+        "color": "green"
       }
     },
     {
       "index": 12,
       "sticker": {
-        "color": "red"
+        "color": "purple"
       }
     },
     {
       "index": 4,
       "sticker": {
-        "color": "green"
+        "color": "lblue"
       }
     },
     {
       "index": 13,
       "sticker": {
-        "color": "purple"
+        "color": "black"
       }
     },
     {
@@ -83,7 +83,7 @@
     {
       "index": 14,
       "sticker": {
-        "color": "black"
+        "color": "red"
       }
     },
     {
@@ -95,13 +95,13 @@
     {
       "index": 15,
       "sticker": {
-        "color": "yellow"
+        "color": "dblue"
       }
     },
     {
       "index": 6,
       "sticker": {
-        "color": "dblue"
+        "color": "yellow"
       }
     }
   ],
@@ -109,13 +109,13 @@
     {
       "index": 3,
       "sticker": {
-        "color": "lblue"
+        "color": "green"
       }
     },
     {
       "index": 13,
       "sticker": {
-        "color": "purple"
+        "color": "black"
       }
     },
     {
@@ -127,7 +127,7 @@
     {
       "index": 10,
       "sticker": {
-        "color": "purple"
+        "color": "yellow"
       }
     },
     {
@@ -142,13 +142,13 @@
     {
       "index": 1,
       "sticker": {
-        "color": "black"
+        "color": "dblue"
       }
     },
     {
       "index": 18,
       "sticker": {
-        "color": "white"
+        "color": "purple"
       }
     },
     {
@@ -168,13 +168,13 @@
     {
       "index": 15,
       "sticker": {
-        "color": "yellow"
+        "color": "dblue"
       }
     },
     {
       "index": 6,
       "sticker": {
-        "color": "dblue"
+        "color": "yellow"
       }
     },
     {
@@ -215,19 +215,19 @@
     {
       "index": 6,
       "sticker": {
-        "color": "dblue"
+        "color": "yellow"
       }
     },
     {
       "index": 14,
       "sticker": {
-        "color": "black"
+        "color": "red"
       }
     },
     {
       "index": 4,
       "sticker": {
-        "color": "green"
+        "color": "lblue"
       }
     },
     {
@@ -254,13 +254,13 @@
     {
       "index": 20,
       "sticker": {
-        "color": "red"
+        "color": "white"
       }
     },
     {
       "index": 2,
       "sticker": {
-        "color": "yellow"
+        "color": "black"
       }
     }
   ],
@@ -286,7 +286,7 @@
     {
       "index": 18,
       "sticker": {
-        "color": "white"
+        "color": "purple"
       }
     },
     {
@@ -295,25 +295,25 @@
     {
       "index": 20,
       "sticker": {
-        "color": "red"
+        "color": "white"
       }
     },
     {
       "index": 1,
       "sticker": {
-        "color": "black"
+        "color": "dblue"
       }
     },
     {
       "index": 9,
       "sticker": {
-        "color": "dblue"
+        "color": "red"
       }
     },
     {
       "index": 2,
       "sticker": {
-        "color": "yellow"
+        "color": "black"
       }
     }
   ]
